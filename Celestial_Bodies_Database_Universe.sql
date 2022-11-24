@@ -222,7 +222,7 @@ ALTER SEQUENCE public.star_star_id_seq OWNED BY public.star.star_id;
 CREATE TABLE public.zodiac (
     name character varying(20) NOT NULL,
     zodiac_id integer NOT NULL,
-    galaxy_id integer
+    description text
 );
 
 
@@ -297,15 +297,15 @@ ALTER TABLE ONLY public.zodiac ALTER COLUMN zodiac_id SET DEFAULT nextval('publi
 --
 
 INSERT INTO public.galaxy VALUES (1, 'Solar System', 8, NULL, NULL);
-INSERT INTO public.galaxy VALUES (2, 'Alpha Centauri', 1, NULL, NULL);
-INSERT INTO public.galaxy VALUES (3, 'Ophiuchus', 1, NULL, NULL);
-INSERT INTO public.galaxy VALUES (5, 'Ursa Major', 1, NULL, NULL);
-INSERT INTO public.galaxy VALUES (9, 'Virgo', 1, NULL, NULL);
-INSERT INTO public.galaxy VALUES (6, 'Canis Major', 0, NULL, NULL);
-INSERT INTO public.galaxy VALUES (7, 'Cetus', 0, NULL, NULL);
-INSERT INTO public.galaxy VALUES (10, 'Aquarius', 0, NULL, NULL);
 INSERT INTO public.galaxy VALUES (4, 'Leo', 2, NULL, 'April');
 INSERT INTO public.galaxy VALUES (8, 'Sagittarius', 0, 'Located at the center of Milky Way Galaxy', 'August');
+INSERT INTO public.galaxy VALUES (10, 'Aquarius', 0, NULL, 'October');
+INSERT INTO public.galaxy VALUES (7, 'Cetus', 0, NULL, 'November');
+INSERT INTO public.galaxy VALUES (6, 'Canis Major', 0, NULL, 'February');
+INSERT INTO public.galaxy VALUES (9, 'Virgo', 1, NULL, 'March and April');
+INSERT INTO public.galaxy VALUES (5, 'Ursa Major', 1, NULL, 'April');
+INSERT INTO public.galaxy VALUES (3, 'Ophiuchus', 1, NULL, 'July');
+INSERT INTO public.galaxy VALUES (2, 'Alpha Centauri', 1, NULL, 'May and June');
 
 
 --
@@ -376,18 +376,18 @@ INSERT INTO public.star VALUES (11, 'Procyon', 6, 11, 9);
 -- Data for Name: zodiac; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.zodiac VALUES ('Aries', 1, NULL);
-INSERT INTO public.zodiac VALUES ('Taurus', 2, NULL);
-INSERT INTO public.zodiac VALUES ('Gemini', 3, NULL);
-INSERT INTO public.zodiac VALUES ('Cancer', 4, NULL);
-INSERT INTO public.zodiac VALUES ('Leo', 5, NULL);
-INSERT INTO public.zodiac VALUES ('Virgo', 6, NULL);
-INSERT INTO public.zodiac VALUES ('Libra', 7, NULL);
-INSERT INTO public.zodiac VALUES ('Scorpio', 8, NULL);
-INSERT INTO public.zodiac VALUES ('Sagittarius', 9, NULL);
-INSERT INTO public.zodiac VALUES ('Capricorn', 10, NULL);
-INSERT INTO public.zodiac VALUES ('Aquarius', 11, NULL);
-INSERT INTO public.zodiac VALUES ('Pisces', 12, NULL);
+INSERT INTO public.zodiac VALUES ('Aries', 1, 'Located in the Northern Hemisphere between Pisces to its west and Taurus to its east.');
+INSERT INTO public.zodiac VALUES ('Taurus', 2, 'Lying immediately north-west of Orion');
+INSERT INTO public.zodiac VALUES ('Gemini', 3, 'Located between the Cancer and Taurus constellations in the Northern Hemisphere"s second quadrant(NQ2)');
+INSERT INTO public.zodiac VALUES ('Cancer', 4, 'Located in the Northern celestial hemisphere, between Leo, the lion, and Gemini, the twins.');
+INSERT INTO public.zodiac VALUES ('Leo', 5, 'Between Cancer the crab to the west and Virgo the maiden to the east. Located in the Northern celestial hemispphere');
+INSERT INTO public.zodiac VALUES ('Virgo', 6, 'Located in the third quadrant of the southern hemisphere (SQ3)');
+INSERT INTO public.zodiac VALUES ('Libra', 7, 'Located in the third quadrant of the southern hemisphere (SQ3)');
+INSERT INTO public.zodiac VALUES ('Scorpio', 8, 'Located in the southern celestial hemisphere, where it sits near the center of the Milky Way');
+INSERT INTO public.zodiac VALUES ('Sagittarius', 9, 'Right on the plane of the Milky Way and its teapot spout points almost directly to the center of our galaxy.');
+INSERT INTO public.zodiac VALUES ('Capricorn', 10, 'Lies in the fourth quadrant of the southern hemisphere (SQ4)');
+INSERT INTO public.zodiac VALUES ('Aquarius', 11, 'Located in the southern hemisphere"s fourth quadrant(SQ4)');
+INSERT INTO public.zodiac VALUES ('Pisces', 12, 'Located northeast of Aquarius and to the northewest of the constellation Cetus the Sea-monster.');
 
 
 --
@@ -429,7 +429,7 @@ SELECT pg_catalog.setval('public.star_star_id_seq', 12, true);
 -- Name: zodiac_zodiac_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.zodiac_zodiac_id_seq', 1, false);
+SELECT pg_catalog.setval('public.zodiac_zodiac_id_seq', 1, true);
 
 
 --
